@@ -11,7 +11,6 @@ if (__DEV__ && typeof global.crypto !== 'object') {
   };
 }
 
-// Test!
 
 const regenerateUUID = async () => {
   try {
