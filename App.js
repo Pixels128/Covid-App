@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 const uuid = require('uuid');
 
 if (__DEV__ && typeof global.crypto !== 'object') {
@@ -10,7 +11,6 @@ if (__DEV__ && typeof global.crypto !== 'object') {
     getRandomValues: (array: any[]) => array.map(() => Math.floor(Math.random() * 256)),
   };
 }
-
 
 const regenerateUUID = async () => {
   try {
@@ -58,8 +58,10 @@ const getAndReportUser = async () => {
 
 function report(userID) {
   const x = 1
+  const TCPIP = '192.168.1.30:5000'
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", 'http://10.208.3.46:5000/api/v2/' + userID + '?hasCovid=true', true);
+  console.log('http://' + TCPIP + '/api/v2/' + userID + '?hasCovid=true')
+  xhr.open("POST", 'http://' + TCPIP + '/api/v2/' + userID + '?hasCovid=true', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({
     "hasCovid": true
@@ -94,3 +96,13 @@ const styles = StyleSheet.create({
     fontSize: 24
   }
 });
+
+
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
