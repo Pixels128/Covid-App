@@ -11,6 +11,7 @@ if (__DEV__ && typeof global.crypto !== 'object') {
   };
 }
 
+
 const regenerateUUID = async () => {
   try {
     let newUuid = uuid.v4()
