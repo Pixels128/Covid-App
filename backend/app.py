@@ -81,31 +81,3 @@ async def post_user(user_uuid, hasCovid: bool):
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=5000, log_level="info")
-
-
-# app = Flask(__name__)
-
-
-# @app.route("/", methods=["GET"])
-# def hello():
-#     return "Endpoint: /api/v1/[ID]"
-
-
-
-# @app.route("/api/v1/<id>", methods=["GET", "POST"])
-# def show(id):
-#     print(uuid)
-#     response = jsonify({'some': 'data'})
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#     # try:
-#     uuid=str(uuid)
-#     # except ValueError:
-#         # return abort(404)
-#     print(request.method)
-#     if request.method == "POST":
-#         print("Got POST", uuid)
-#         flagWithCovid(uuid)
-#     return {"hasCovid":hasCovid(uuid)}
-
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=80)

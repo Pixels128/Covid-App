@@ -58,7 +58,7 @@ const getAndReportUser = async () => {
 
 function report(userID) {
   const x = 1
-  const TCPIP = '192.168.1.30:5000'
+  const TCPIP = '10.208.2.61:5000'
   var xhr = new XMLHttpRequest();
   console.log('http://' + TCPIP + '/api/v2/' + userID + '?hasCovid=true')
   xhr.open("POST", 'http://' + TCPIP + '/api/v2/' + userID + '?hasCovid=true', true);
