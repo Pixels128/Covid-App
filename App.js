@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 const uuid = require('uuid');
 
 if (__DEV__ && typeof global.crypto !== 'object') {
@@ -36,6 +35,7 @@ const storeUser = async () => {
   }
   getUser()
 };
+
 const getUser = async () => {
   try {
     const savedUser = await AsyncStorage.getItem("UUID");
@@ -56,6 +56,10 @@ const getAndReportUser = async () => {
   report(savedUser)
 }
 
+function requestEnableBLE() {
+  console.log(1)
+}
+
 function report(userID) {
   const x = 1
   const TCPIP = '10.208.2.61:5000'
@@ -69,13 +73,14 @@ function report(userID) {
   console.log("Report Sent id:", userID)
 }
 
+let numCovidContacts = 1
+
 export default function App() {
-  let numCovidContacts = 1
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.textStyle}>{numCovidContacts} Close Contact Covid Cases</Text>
       <Text>{'\n'}</Text>
-      <Button title="Bluetooth Disconnected"></Button>
+      <Button onPress={requestEnableBLE} title="Bluetooth Disconnected"></Button>
       <Text>{'\n'}</Text>
       <Button onPress={regenerateUUID} title="Regenerate Unique ID"></Button>
       <Text>{'\n'}</Text>
