@@ -5,12 +5,27 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppRegistry } from "react-native";
 import { BleManager } from "react-native-ble-manager";
 
-AppRegistry.registerComponent("MyAwesomeApp", () => App);
+// AppRegistry.registerComponent("MyAwesomeApp", () => App);
 
 BleManager.start({ showAlert: false }).then(() => {
   // Success code
   console.log("Module initialized");
 });
+
+BleManager.scan([], 5, true).then(() => {
+  // Success code
+  console.log("Scan started");
+});
+
+BleManager.enableBluetooth()
+  .then(() => {
+    // Success code
+    console.log("The bluetooth is already enabled or the user confirm");
+  })
+  .catch((error) => {
+    // Failure code
+    console.log("The user refuse to enable bluetooth");
+  });
 
 const uuid = require("uuid");
 
@@ -49,6 +64,15 @@ const getUser = async () => {
   try {
     const savedUser = await AsyncStorage.getItem("UUID");
     console.log("Is Stored:", savedUser);
+    BleManager.startNotification(savedUser)
+      .then(() => {
+        // Success code
+        console.log("Notification started");
+      })
+      .catch((error) => {
+        // Failure code
+        console.log(error);
+      });
   } catch (error) {
     console.log(error);
   }
