@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "doneWithIt",
-    "slug": "doneWithIt",
+    "name": "Covid-19 App",
+    "slug": "Covid-19 App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
